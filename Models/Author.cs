@@ -8,8 +8,9 @@ namespace BibliotekSystem.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Navn er påkrevd")]
-        public string Name { get; set; }
+        [Display(Name = "Forfatternavn")]
+        public string Name { get; set; } = string.Empty;
 
-        public List<Book> Books { get; set; }
+        public List<Book> Books { get; set; } = new List<Book>();
     }
 }

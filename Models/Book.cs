@@ -7,15 +7,18 @@ namespace BibliotekSystem.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Tittel er påkrevd")]
-        [StringLength(100)]
-        public string Title { get; set; }
+        [StringLength(100, ErrorMessage = "Tittel kan ikke være lengre enn 100 tegn")]
+        public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "ISBN er påkrevd")]
-        public string ISBN { get; set; }
+        public string ISBN { get; set; } = string.Empty;
 
+        [Display(Name = "Utgivelsesår")]
         public int PublishedYear { get; set; }
 
+        [Display(Name = "Forfatter")]
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+
+        public Author? Author { get; set; }
     }
 }
